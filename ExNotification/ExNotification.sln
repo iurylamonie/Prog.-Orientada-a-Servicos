@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToastServer", "ToastServer\ToastServer.csproj", "{5890F3FC-C6BA-418C-98AB-6F393F63AD79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToastSendApp", "ToastSendApp\ToastSendApp.csproj", "{172A6F41-98A2-464E-A42D-F3A618F58A96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToastClientApp", "ToastClientApp\ToastClientApp.csproj", "{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Debug|ARM.Build.0 = Debug|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Debug|x86.Build.0 = Debug|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Release|ARM.ActiveCfg = Release|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Release|ARM.Build.0 = Release|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Release|x86.ActiveCfg = Release|Any CPU
+		{5890F3FC-C6BA-418C-98AB-6F393F63AD79}.Release|x86.Build.0 = Release|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Debug|ARM.Build.0 = Debug|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Debug|x86.Build.0 = Debug|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Release|ARM.ActiveCfg = Release|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Release|ARM.Build.0 = Release|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Release|x86.ActiveCfg = Release|Any CPU
+		{172A6F41-98A2-464E-A42D-F3A618F58A96}.Release|x86.Build.0 = Release|Any CPU
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Debug|ARM.ActiveCfg = Debug|ARM
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Debug|ARM.Build.0 = Debug|ARM
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Debug|ARM.Deploy.0 = Debug|ARM
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Debug|x86.ActiveCfg = Debug|x86
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Debug|x86.Build.0 = Debug|x86
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Debug|x86.Deploy.0 = Debug|x86
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Release|ARM.ActiveCfg = Release|ARM
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Release|ARM.Build.0 = Release|ARM
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Release|ARM.Deploy.0 = Release|ARM
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Release|x86.ActiveCfg = Release|x86
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Release|x86.Build.0 = Release|x86
+		{7FBD95C4-2AB8-4160-AFFC-FAC2EDCBBF15}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
