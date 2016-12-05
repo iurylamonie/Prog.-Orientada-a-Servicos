@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WhatsApp" Class="IFsAppDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-F1JDHKU\SQLEXPRESS;Initial Catalog=WhatsApp;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WhatsAppConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Grupo" Member="Grupos">
+    <Type Name="Grupo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="IdAdm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Grupo_GrupoUsuario" Member="GrupoUsuarios" ThisKey="Id" OtherKey="Grupo_id" Type="GrupoUsuario" />
+      <Association Name="Usuario_Grupo" Member="Usuario" ThisKey="IdAdm" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrupoUsuario" Member="GrupoUsuarios">
+    <Type Name="GrupoUsuario">
+      <Column Name="Usuario_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Grupo_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Grupo_GrupoUsuario" Member="Grupo" ThisKey="Grupo_id" OtherKey="Id" Type="Grupo" IsForeignKey="true" />
+      <Association Name="Usuario_GrupoUsuario" Member="Usuario" ThisKey="Usuario_id" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Uri" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Foto" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Usuario_Grupo" Member="Grupos" ThisKey="Id" OtherKey="IdAdm" Type="Grupo" />
+      <Association Name="Usuario_GrupoUsuario" Member="GrupoUsuarios" ThisKey="Id" OtherKey="Usuario_id" Type="GrupoUsuario" />
+    </Type>
+  </Table>
+</Database>
