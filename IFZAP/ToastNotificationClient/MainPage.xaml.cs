@@ -27,6 +27,7 @@ namespace ToastNotificationClient
             {
                 pushChannel = new HttpNotificationChannel(nomeCanal);
                 pushChannel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(AtualizarUriCanal);
+                pushChannel.ErrorOccurred += new EventHandler<NotificationChannelErrorEventArgs>(PushChannel_ErrorOccurred);
                 pushChannel.ShellToastNotificationReceived += new EventHandler<NotificationEventArgs>(PushChannel_ShellToastNotificationReceived);
                 pushChannel.Open();
                 pushChannel.BindToShellToast();
@@ -40,6 +41,14 @@ namespace ToastNotificationClient
             }
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+        }
+
+        private void PushChannel_ErrorOccurred(object sender, NotificationChannelErrorEventArgs e)
+        {
+            Dispatcher.BeginInvoke(() =>
+                MessageBox.Show(String.Format("A push notification {0} error occurred.  {1} ({2}) {3}",
+                    e.ErrorType, e.Message, e.ErrorCode, e.ErrorAdditionalData))
+                    );
         }
 
         private void PushChannel_ShellToastNotificationReceived(object sender, NotificationEventArgs e)
