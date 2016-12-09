@@ -56,7 +56,7 @@ namespace ToastNotificationClient
             StringBuilder message = new StringBuilder();
             string relativeUri = string.Empty;
 
-            message.AppendFormat("Received Toast {0}:\n", DateTime.Now.ToShortTimeString());
+            message.AppendFormat("Mensagem Recebida às {0}:\n", DateTime.Now.ToShortTimeString());
 
             // Parse out the information that was part of the message.
             foreach (string key in e.Collection.Keys)

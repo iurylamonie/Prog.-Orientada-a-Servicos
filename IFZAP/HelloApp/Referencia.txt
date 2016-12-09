@@ -3,3 +3,5 @@
 https://msdn.microsoft.com/en-us/library/hh221549.aspx
 
 https://msdn.microsoft.com/library/windows/apps/ff402558(v=vs.105).aspx
+
+https://msdn.microsoft.com/pt-br/library/windows/apps/jj662938(v=vs.105).aspx
