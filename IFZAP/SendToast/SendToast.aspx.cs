@@ -35,7 +35,6 @@ namespace SendToast
                     "</wp:Notification>";
 
                 byte[] notificationMessage = Encoding.Default.GetBytes(toastMessage);
-
                 // Set the web request content length.
                 sendNotificationRequest.ContentLength = notificationMessage.Length;
                 sendNotificationRequest.ContentType = "text/xml";

@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using SendToastMobile.Resources;
 using System.IO;
+using System.Text;
 
 namespace SendToastMobile
 {
@@ -23,35 +24,35 @@ namespace SendToastMobile
             //BuildLocalizedApplicationBar();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private  void button_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                string subscriptionUri = textBoxUri.Text.ToString();
-                HttpWebRequest sendNotificationRequest = (HttpWebRequest)WebRequest.Create(subscriptionUri);
-                sendNotificationRequest.Method = "POST";
+            {      
+                 string subscriptionUri = textBoxUri.Text.ToString();
+                 HttpWebRequest sendNotificationRequest = (HttpWebRequest)WebRequest.Create(subscriptionUri);
+                 sendNotificationRequest.Method = "POST";
 
-                string toastMessage = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                   "<wp:Notification xmlns:wp=\"WPNotification\">" +
-                   "<wp:Toast>" +
-                           "<wp:Text1>" + textBoxText1.Text.ToString() + "</wp:Text1>" +
-                           "<wp:Text2>" + textBox2Text2.Text.ToString() + "</wp:Text2>" +
-                           "<wp:Param>/Page1.xaml?NavigatedFrom=Toast Notification</wp:Param>" +
-                      "</wp:Toast> " +
-                   "</wp:Notification>";
+                 string toastMessage = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                    "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                    "<wp:Toast>" +
+                            "<wp:Text1>" + textBoxText1.Text.ToString() + "</wp:Text1>" +
+                            "<wp:Text2>" + textBox2Text2.Text.ToString() + "</wp:Text2>" +
+                            "<wp:Param>/Page1.xaml?NavigatedFrom=Toast Notification</wp:Param>" +
+                       "</wp:Toast> " +
+                    "</wp:Notification>";
 
-                byte[] notificationMessage = Encoding.Default.GetBytes(toastMessage);
+                byte[] notificationMessage = Encoding.UTF8.GetBytes(toastMessage);
 
-                // Set the web request content length.
-                sendNotificationRequest.ContentLength = notificationMessage.Length;
-                sendNotificationRequest.ContentType = "text/xml";
-                sendNotificationRequest.Headers["X-WindowsPhone-Target"] = "toast";
-                sendNotificationRequest.Headers["X-NotificationClass"] = "2";
+                 //Set the web request content length.
+                 sendNotificationRequest.ContentLength = notificationMessage.Length;
+                 sendNotificationRequest.ContentType = "text/xml";
+                 sendNotificationRequest.Headers["X-WindowsPhone-Target"] = "toast";
+                 sendNotificationRequest.Headers["X-NotificationClass"] = "2";
 
-                using (Stream requestStream = sendNotificationRequest.GetRequestStream())
-                {
-                    requestStream.Write(notificationMessage, 0, notificationMessage.Length);
-                }
+                 using (Stream requestStream = sendNotificationRequest.GetRequestStreamAsync().Result)
+                 {
+                      requestStream.Write(notificationMessage, 0, notificationMessage.Length);
+                 }
             }
             catch (Exception)
             {

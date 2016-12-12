@@ -39,6 +39,7 @@ namespace ToastNotificationClient
                 System.Diagnostics.Debug.WriteLine(pushChannel.ChannelUri.ToString());
                 MessageBox.Show(String.Format("Canal Uri é {0}", pushChannel.ChannelUri.ToString()));
             }
+            textBoxUri.Text = pushChannel.ChannelUri.ToString();
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
