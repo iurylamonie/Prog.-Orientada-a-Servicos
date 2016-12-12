@@ -20,7 +20,8 @@ namespace ToastNotificationClient
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            textBlockAviso.Text = "Navigated here from " + this.NavigationContext.QueryString["NavigatedFrom"];
+           // textBlockAviso.Text = "Navigated here from " + this.NavigationContext.QueryString["NavigatedFrom"];
+            textBoxTeste.Text = "Navigated here from " + this.NavigationContext.QueryString["NavigatedFrom"];
         }
     }
 }

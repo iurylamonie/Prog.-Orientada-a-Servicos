@@ -15,6 +15,7 @@ namespace ToastNotificationClient
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        private string aidentro;
         // Constructor
         public MainPage()
         {
@@ -37,9 +38,10 @@ namespace ToastNotificationClient
                 pushChannel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(AtualizarUriCanal);
                 pushChannel.ShellToastNotificationReceived += new EventHandler<NotificationEventArgs>(PushChannel_ShellToastNotificationReceived);
                 System.Diagnostics.Debug.WriteLine(pushChannel.ChannelUri.ToString());
-                MessageBox.Show(String.Format("Canal Uri é {0}", pushChannel.ChannelUri.ToString()));
+              //  MessageBox.Show(String.Format("Canal Uri é {0}", pushChannel.ChannelUri.ToString()));
+               // textBoxUri.Text = pushChannel.ChannelUri.ToString();
             }
-            textBoxUri.Text = pushChannel.ChannelUri.ToString();
+           
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -81,14 +83,15 @@ namespace ToastNotificationClient
             Dispatcher.BeginInvoke(
                 () => {
                     System.Diagnostics.Debug.WriteLine(e.ChannelUri.ToString());
-                    MessageBox.Show(String.Format("Canal Uri é {0}", e.ChannelUri.ToString()));
+                    MessageBox.Show(String.Format("Deu certo"/*, e.ChannelUri.ToString()*/));
+                    aidentro = e.ChannelUri.ToString();
                 }
                 );
         }
 
         private void btnNavegar_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Page1.xaml?NavigatedFrom=Main Page", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Page1.xaml?NavigatedFrom="+aidentro, UriKind.Relative));
         }
 
         // Sample code for building a localized ApplicationBar

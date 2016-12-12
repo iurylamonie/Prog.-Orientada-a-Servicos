@@ -24,7 +24,7 @@ namespace SendToastMobile
             //BuildLocalizedApplicationBar();
         }
 
-        private  void button_Click(object sender, RoutedEventArgs e)
+        private  async void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {      
@@ -49,7 +49,7 @@ namespace SendToastMobile
                  sendNotificationRequest.Headers["X-WindowsPhone-Target"] = "toast";
                  sendNotificationRequest.Headers["X-NotificationClass"] = "2";
 
-                 using (Stream requestStream = sendNotificationRequest.GetRequestStreamAsync().Result)
+                using (Stream requestStream = await sendNotificationRequest.GetRequestStreamAsync())
                  {
                       requestStream.Write(notificationMessage, 0, notificationMessage.Length);
                  }
@@ -57,7 +57,7 @@ namespace SendToastMobile
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Erro");
             }
         }
 
