@@ -30,9 +30,8 @@ namespace SendToastMobile
             {      
                  string subscriptionUri = textBoxUri.Text.ToString();
                  HttpWebRequest sendNotificationRequest = (HttpWebRequest)WebRequest.Create(subscriptionUri);
-                 sendNotificationRequest.Method = "POST";
 
-                 string toastMessage = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                 string msg = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
                     "<wp:Notification xmlns:wp=\"WPNotification\">" +
                     "<wp:Toast>" +
                             "<wp:Text1>" + textBoxText1.Text.ToString() + "</wp:Text1>" +
@@ -41,17 +40,25 @@ namespace SendToastMobile
                        "</wp:Toast> " +
                     "</wp:Notification>";
 
-                byte[] notificationMessage = Encoding.UTF8.GetBytes(toastMessage);
+                byte[] msgByte = Encoding.UTF8.GetBytes(msg);
+                //.UTF8.GetBytes(toastMessage);
 
-                 //Set the web request content length.
-                 sendNotificationRequest.ContentLength = notificationMessage.Length;
+                sendNotificationRequest.Method = "Post";
+                sendNotificationRequest.ContentType = "text/xml";
+                sendNotificationRequest.ContentLength = msg.Length;
+                sendNotificationRequest.Headers["X-MessageID"] = Guid.NewGuid().ToString();
+                sendNotificationRequest.Headers["X-WindowsPhone-Target"] = "toast";
+                sendNotificationRequest.Headers["X-NotificationClass"] = "2";
+                //Set the web request content length.
+                /*
+                sendNotificationRequest.ContentLength = notificationMessage.Length;
                  sendNotificationRequest.ContentType = "text/xml";
                  sendNotificationRequest.Headers["X-WindowsPhone-Target"] = "toast";
                  sendNotificationRequest.Headers["X-NotificationClass"] = "2";
-
+                 */
                 using (Stream requestStream = await sendNotificationRequest.GetRequestStreamAsync())
                  {
-                      requestStream.Write(notificationMessage, 0, notificationMessage.Length);
+                      requestStream.Write(msgByte, 0, msgByte.Length);
                  }
             }
             catch (Exception)
