@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendToast", "SendToast\Send
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendToastMobile", "SendToastMobile\SendToastMobile.csproj", "{5823B90E-4E0C-49DE-BA89-5DBEDF461551}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsApp", "WhatsApp\WhatsApp.csproj", "{E5BE57E6-D384-481D-A2BA-57C74961C455}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,24 @@ Global
 		{5823B90E-4E0C-49DE-BA89-5DBEDF461551}.Release|x86.ActiveCfg = Release|x86
 		{5823B90E-4E0C-49DE-BA89-5DBEDF461551}.Release|x86.Build.0 = Release|x86
 		{5823B90E-4E0C-49DE-BA89-5DBEDF461551}.Release|x86.Deploy.0 = Release|x86
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Debug|ARM.Build.0 = Debug|ARM
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Debug|ARM.Deploy.0 = Debug|ARM
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Debug|x86.ActiveCfg = Debug|x86
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Debug|x86.Build.0 = Debug|x86
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Debug|x86.Deploy.0 = Debug|x86
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Release|ARM.ActiveCfg = Release|ARM
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Release|ARM.Build.0 = Release|ARM
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Release|ARM.Deploy.0 = Release|ARM
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Release|x86.ActiveCfg = Release|x86
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Release|x86.Build.0 = Release|x86
+		{E5BE57E6-D384-481D-A2BA-57C74961C455}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
