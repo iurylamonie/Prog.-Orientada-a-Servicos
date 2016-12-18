@@ -33,7 +33,18 @@
             <phone:Pivot HorizontalAlignment="Left" Height="686" Margin="10,72,0,0" Title="pivot" VerticalAlignment="Top" Width="436" Background="{x:Null}">
                 <phone:PivotItem CacheMode="{x:Null}" Header="Amigos" Margin="12,28,-349,-503" Background="#FFB93C3C">
                     <Grid>
-                        <phone:LongListSelector x:Name="listUsuarios" HorizontalAlignment="Left" Height="455" Margin="10,10,0,0" VerticalAlignment="Top" Width="394"/>
+                        <phone:LongListSelector x:Name="listUsuarios" HorizontalAlignment="Left" Height="455" Margin="10,10,0,0" VerticalAlignment="Top" Width="394">
+                            <phone:LongListSelector.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Width="70" Height="70" Source="/Assets/AlignmentGrid.png"/>
+                                        <TextBlock Text="{Binding LineOne Nome}" />
+                                        <TextBlock Text="{Binding LineTwo Descricao}" />
+                                        <Button Content="Confirmar"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </phone:LongListSelector.ItemTemplate>
+                        </phone:LongListSelector>
                     </Grid>
                 </phone:PivotItem>
                 <phone:PivotItem CacheMode="{x:Null}" Header="Grupos" Margin="12,28,-349,-530">

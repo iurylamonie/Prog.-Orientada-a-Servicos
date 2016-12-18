@@ -20,7 +20,6 @@ namespace WhatsApp
             listUser.Add(new Models.TUsuario { Nome = "Gilbert", Descrição = "Professor" });
             listUser.Add(new Models.TUsuario { Nome = "George", Descrição = "Professor" });
             listUsuarios.ItemsSource = listUser;
-            listUsuarios.SelectedItem = 1;
         }
     }
 }
