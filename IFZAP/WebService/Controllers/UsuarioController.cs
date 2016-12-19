@@ -28,17 +28,37 @@ namespace WebService.Controllers
             var usuarios = from u in dc.Usuarios select u;
             return usuarios.ToList();
         }
-        [Route("Alterar/{id}")]
-        public void Alterar(int id, [FromBody] string conteudo)
+        [AcceptVerbs("GET")]
+        [Route("ConsultarPorNome/{nome}")]
+        public string ConsultarPorNome(string nome)
+        {
+            Models.IFZAPDataContext dc = new Models.IFZAPDataContext();
+            try
+            {
+                var r = (from u in dc.Usuarios where u.Nome == nome select u.Nome).Single();
+                return r;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            
+
+        }
+        [AcceptVerbs("PUT")]
+        [Route("Alterar/{nome}")]
+        public void Alterar(string nome, [FromBody] string conteudo)
         {
             Models.IFZAPDataContext dc = new Models.IFZAPDataContext();
             var usuario = JsonConvert.DeserializeObject<Models.Usuario>(conteudo);
             var r = (from u in dc.Usuarios
-                     where u.Id == id
+                     where u.Nome == nome
                      select u).Single();
             r = usuario;
             dc.SubmitChanges();
         }
+        [AcceptVerbs("DELETE")]
         [Route("Deletar/{id}")]
         public void Deletar(int id)
         {

@@ -5,26 +5,24 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Nome" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="Uri" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Foto" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Usuario_GrupoUsuario" Member="GrupoUsuarios" ThisKey="Id" OtherKey="Usuario_id" Type="GrupoUsuario" />
-      <Association Name="Usuario_Grupo" Member="Grupos" ThisKey="Id" OtherKey="IdAdm" Type="Grupo" />
-    </Type>
-  </Table>
-  <Table Name="dbo.GrupoUsuario" Member="GrupoUsuarios">
-    <Type Name="GrupoUsuario">
-      <Column Name="Usuario_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Grupo_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Usuario_GrupoUsuario" Member="Usuario" AccessModifier="Internal" ThisKey="Usuario_id" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
-      <Association Name="Grupo_GrupoUsuario" Member="Grupo" AccessModifier="Internal" ThisKey="Grupo_id" OtherKey="Id" Type="Grupo" IsForeignKey="true" />
+      <Column Name="Foto" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Usuario_Membro" Member="Membros" ThisKey="Id" OtherKey="Usuario_Id" Type="Membro" />
     </Type>
   </Table>
   <Table Name="dbo.Grupo" Member="Grupos">
     <Type Name="Grupo">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Descricao" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="IdAdm" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Grupo_GrupoUsuario" Member="GrupoUsuarios" ThisKey="Id" OtherKey="Grupo_id" Type="GrupoUsuario" />
-      <Association Name="Usuario_Grupo" Member="Usuario" AccessModifier="Internal" ThisKey="IdAdm" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+      <Column Name="IdAdm" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Grupo_Membro" Member="Membros" ThisKey="Id" OtherKey="Grupo_Id" Type="Membro" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Membros" Member="Membros">
+    <Type Name="Membro">
+      <Column Name="Usuario_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Grupo_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Grupo_Membro" Member="Grupo" ThisKey="Grupo_Id" OtherKey="Id" Type="Grupo" IsForeignKey="true" />
+      <Association Name="Usuario_Membro" Member="Usuario" ThisKey="Usuario_Id" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

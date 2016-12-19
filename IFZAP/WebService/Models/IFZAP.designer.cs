@@ -36,6 +36,9 @@ namespace WebService.Models
     partial void InsertGrupo(Grupo instance);
     partial void UpdateGrupo(Grupo instance);
     partial void DeleteGrupo(Grupo instance);
+    partial void InsertMembro(Membro instance);
+    partial void UpdateMembro(Membro instance);
+    partial void DeleteMembro(Membro instance);
     #endregion
 		
 		public IFZAPDataContext() : 
@@ -76,19 +79,19 @@ namespace WebService.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<GrupoUsuario> GrupoUsuarios
-		{
-			get
-			{
-				return this.GetTable<GrupoUsuario>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Grupo> Grupos
 		{
 			get
 			{
 				return this.GetTable<Grupo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Membro> Membros
+		{
+			get
+			{
+				return this.GetTable<Membro>();
 			}
 		}
 	}
@@ -105,9 +108,9 @@ namespace WebService.Models
 		
 		private string _Uri;
 		
-		private System.Data.Linq.Binary _Foto;
+		private string _Foto;
 		
-		private EntitySet<Grupo> _Grupos;
+		private EntitySet<Membro> _Membros;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -119,13 +122,13 @@ namespace WebService.Models
     partial void OnNomeChanged();
     partial void OnUriChanging(string value);
     partial void OnUriChanged();
-    partial void OnFotoChanging(System.Data.Linq.Binary value);
+    partial void OnFotoChanging(string value);
     partial void OnFotoChanged();
     #endregion
 		
 		public Usuario()
 		{
-			this._Grupos = new EntitySet<Grupo>(new Action<Grupo>(this.attach_Grupos), new Action<Grupo>(this.detach_Grupos));
+			this._Membros = new EntitySet<Membro>(new Action<Membro>(this.attach_Membros), new Action<Membro>(this.detach_Membros));
 			OnCreated();
 		}
 		
@@ -189,8 +192,8 @@ namespace WebService.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Foto", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Foto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Foto", DbType="VarChar(MAX)")]
+		public string Foto
 		{
 			get
 			{
@@ -209,16 +212,16 @@ namespace WebService.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Grupo", Storage="_Grupos", ThisKey="Id", OtherKey="IdAdm")]
-		public EntitySet<Grupo> Grupos
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Membro", Storage="_Membros", ThisKey="Id", OtherKey="Usuario_Id")]
+		public EntitySet<Membro> Membros
 		{
 			get
 			{
-				return this._Grupos;
+				return this._Membros;
 			}
 			set
 			{
-				this._Grupos.Assign(value);
+				this._Membros.Assign(value);
 			}
 		}
 		
@@ -242,61 +245,16 @@ namespace WebService.Models
 			}
 		}
 		
-		private void attach_Grupos(Grupo entity)
+		private void attach_Membros(Membro entity)
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = this;
 		}
 		
-		private void detach_Grupos(Grupo entity)
+		private void detach_Membros(Membro entity)
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GrupoUsuario")]
-	public partial class GrupoUsuario
-	{
-		
-		private System.Nullable<int> _Usuario_id;
-		
-		private System.Nullable<int> _Grupo_id;
-		
-		public GrupoUsuario()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario_id", DbType="Int")]
-		public System.Nullable<int> Usuario_id
-		{
-			get
-			{
-				return this._Usuario_id;
-			}
-			set
-			{
-				if ((this._Usuario_id != value))
-				{
-					this._Usuario_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grupo_id", DbType="Int")]
-		public System.Nullable<int> Grupo_id
-		{
-			get
-			{
-				return this._Grupo_id;
-			}
-			set
-			{
-				if ((this._Grupo_id != value))
-				{
-					this._Grupo_id = value;
-				}
-			}
 		}
 	}
 	
@@ -310,9 +268,9 @@ namespace WebService.Models
 		
 		private string _Descricao;
 		
-		private System.Nullable<int> _IdAdm;
+		private string _IdAdm;
 		
-		private EntityRef<Usuario> _Usuario;
+		private EntitySet<Membro> _Membros;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -322,13 +280,13 @@ namespace WebService.Models
     partial void OnIdChanged();
     partial void OnDescricaoChanging(string value);
     partial void OnDescricaoChanged();
-    partial void OnIdAdmChanging(System.Nullable<int> value);
+    partial void OnIdAdmChanging(string value);
     partial void OnIdAdmChanged();
     #endregion
 		
 		public Grupo()
 		{
-			this._Usuario = default(EntityRef<Usuario>);
+			this._Membros = new EntitySet<Membro>(new Action<Membro>(this.attach_Membros), new Action<Membro>(this.detach_Membros));
 			OnCreated();
 		}
 		
@@ -372,8 +330,8 @@ namespace WebService.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdAdm", DbType="Int")]
-		public System.Nullable<int> IdAdm
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdAdm", DbType="NChar(10)")]
+		public string IdAdm
 		{
 			get
 			{
@@ -383,10 +341,6 @@ namespace WebService.Models
 			{
 				if ((this._IdAdm != value))
 				{
-					if (this._Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnIdAdmChanging(value);
 					this.SendPropertyChanging();
 					this._IdAdm = value;
@@ -396,8 +350,167 @@ namespace WebService.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Grupo", Storage="_Usuario", ThisKey="IdAdm", OtherKey="Id", IsForeignKey=true)]
-		internal Usuario Usuario
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grupo_Membro", Storage="_Membros", ThisKey="Id", OtherKey="Grupo_Id")]
+		public EntitySet<Membro> Membros
+		{
+			get
+			{
+				return this._Membros;
+			}
+			set
+			{
+				this._Membros.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Membros(Membro entity)
+		{
+			this.SendPropertyChanging();
+			entity.Grupo = this;
+		}
+		
+		private void detach_Membros(Membro entity)
+		{
+			this.SendPropertyChanging();
+			entity.Grupo = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Membros")]
+	public partial class Membro : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Usuario_Id;
+		
+		private int _Grupo_Id;
+		
+		private EntityRef<Grupo> _Grupo;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUsuario_IdChanging(int value);
+    partial void OnUsuario_IdChanged();
+    partial void OnGrupo_IdChanging(int value);
+    partial void OnGrupo_IdChanged();
+    #endregion
+		
+		public Membro()
+		{
+			this._Grupo = default(EntityRef<Grupo>);
+			this._Usuario = default(EntityRef<Usuario>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Usuario_Id
+		{
+			get
+			{
+				return this._Usuario_Id;
+			}
+			set
+			{
+				if ((this._Usuario_Id != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUsuario_IdChanging(value);
+					this.SendPropertyChanging();
+					this._Usuario_Id = value;
+					this.SendPropertyChanged("Usuario_Id");
+					this.OnUsuario_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grupo_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Grupo_Id
+		{
+			get
+			{
+				return this._Grupo_Id;
+			}
+			set
+			{
+				if ((this._Grupo_Id != value))
+				{
+					if (this._Grupo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGrupo_IdChanging(value);
+					this.SendPropertyChanging();
+					this._Grupo_Id = value;
+					this.SendPropertyChanged("Grupo_Id");
+					this.OnGrupo_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grupo_Membro", Storage="_Grupo", ThisKey="Grupo_Id", OtherKey="Id", IsForeignKey=true)]
+		public Grupo Grupo
+		{
+			get
+			{
+				return this._Grupo.Entity;
+			}
+			set
+			{
+				Grupo previousValue = this._Grupo.Entity;
+				if (((previousValue != value) 
+							|| (this._Grupo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Grupo.Entity = null;
+						previousValue.Membros.Remove(this);
+					}
+					this._Grupo.Entity = value;
+					if ((value != null))
+					{
+						value.Membros.Add(this);
+						this._Grupo_Id = value.Id;
+					}
+					else
+					{
+						this._Grupo_Id = default(int);
+					}
+					this.SendPropertyChanged("Grupo");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Membro", Storage="_Usuario", ThisKey="Usuario_Id", OtherKey="Id", IsForeignKey=true)]
+		public Usuario Usuario
 		{
 			get
 			{
@@ -413,17 +526,17 @@ namespace WebService.Models
 					if ((previousValue != null))
 					{
 						this._Usuario.Entity = null;
-						previousValue.Grupos.Remove(this);
+						previousValue.Membros.Remove(this);
 					}
 					this._Usuario.Entity = value;
 					if ((value != null))
 					{
-						value.Grupos.Add(this);
-						this._IdAdm = value.Id;
+						value.Membros.Add(this);
+						this._Usuario_Id = value.Id;
 					}
 					else
 					{
-						this._IdAdm = default(Nullable<int>);
+						this._Usuario_Id = default(int);
 					}
 					this.SendPropertyChanged("Usuario");
 				}
