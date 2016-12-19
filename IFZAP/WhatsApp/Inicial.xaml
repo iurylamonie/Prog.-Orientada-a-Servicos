@@ -21,25 +21,23 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <!--
+
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="textBlockNome"  Style="{StaticResource PhoneTextNormalStyle}"/>
+
         </StackPanel>
-        -->
+
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button x:Name="buttonVolta" Content="Voltar para tela Inicial" HorizontalAlignment="Left" VerticalAlignment="Top" Width="446"/>
-            <phone:Pivot HorizontalAlignment="Left" Height="686" Margin="20,10,0,0" Title="pivot" VerticalAlignment="Top" Width="436" Background="{x:Null}">
-                <phone:PivotItem CacheMode="{x:Null}" Header="Amigos" Margin="12,28,-349,-503" Background="#FFB93C3C">
-                    <Grid>
-                        
-                        <phone:LongListSelector x:Name="listUsuarios" HorizontalAlignment="Left" Height="455" Margin="10,10,0,0" VerticalAlignment="Top" Width="394">
+            <phone:Pivot HorizontalAlignment="Left" Height="667" Margin="10,0,0,0" Title="pivot" VerticalAlignment="Top" Width="436">
+                <phone:PivotItem CacheMode="{x:Null}" Header="Contatos">
+                    <Grid Height="463" Margin="0,0,-375,0">
+                        <phone:LongListSelector x:Name="longListUser" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" BorderThickness="2">
                             <phone:LongListSelector.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <RadioButton x:Name="radioButton" Content="{Binding Nome}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Click="radioButton_Click">
-                                        </RadioButton>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Nome}"/>
+                                        <!--<Button Content="Mensagem" Click="Button_Click"/>-->
                                     </StackPanel>
                                 </DataTemplate>
                             </phone:LongListSelector.ItemTemplate>
@@ -47,12 +45,10 @@
 
                     </Grid>
                 </phone:PivotItem>
-                <phone:PivotItem CacheMode="{x:Null}" Header="Grupos" Margin="12,28,-349,-530">
-                    <Grid >
-                    </Grid>
+                <phone:PivotItem CacheMode="{x:Null}" Header="Grupos">
+                    <Grid/>
                 </phone:PivotItem>
             </phone:Pivot>
-
         </Grid>
     </Grid>
 

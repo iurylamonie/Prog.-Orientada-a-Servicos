@@ -15,16 +15,20 @@ namespace WhatsApp
         public Inicial()
         {
             InitializeComponent();
+            textBlockNome.Text = Models.UsuarioConectado.Nome;
             List<Models.TUsuario> listUser = new List<Models.TUsuario>();
             listUser.Add(new Models.TUsuario { Imagem = "/Assets/Iury.png", Nome = "Iury", Descricao = "Aluno" });
             listUser.Add(new Models.TUsuario { Imagem = "/Assets/Gilbert.png", Nome = "Gilbert", Descricao = "Professor" });
             listUser.Add(new Models.TUsuario { Imagem = "/Assets/George.png", Nome = "George", Descricao = "Professor" });
-            listUsuarios.ItemsSource = listUser;
+            longListUser.ItemsSource = listUser;
         }
 
-        private void radioButton_Click(object sender, RoutedEventArgs e)
+ 
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            var str = longListUser.SelectedItem.ToString();
+            textBlockNome.Text = str;
         }
     }
 }

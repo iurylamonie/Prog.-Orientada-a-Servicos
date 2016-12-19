@@ -22,7 +22,7 @@ namespace WhatsApp.Models
 
             httpClient.BaseAddress = new Uri("http://localhost:61740/");
         }
-
+       
         public async void CriarUsuario(string _nome, string _uri)
         {
             IniciarHttp();
