@@ -47,7 +47,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button x:Name="buttonCadastrar" Content="Cadastrar" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="154,84,154,0"/>
+            <Button x:Name="buttonCadastrar" Content="Cadastrar" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="154,84,154,0" Click="buttonCadastrar_Click"/>
             <Button x:Name="buttonEntrar" Content="Entrar" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="172,238,172,0"/>
 
         </Grid>

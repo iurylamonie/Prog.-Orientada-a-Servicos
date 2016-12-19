@@ -83,7 +83,7 @@ namespace ToastNotificationClient
             Dispatcher.BeginInvoke(
                 () => {
                     System.Diagnostics.Debug.WriteLine(e.ChannelUri.ToString());
-                    MessageBox.Show(String.Format("Deu certo"/*, e.ChannelUri.ToString()*/));
+                    MessageBox.Show(String.Format("{0}", e.ChannelUri.ToString()));
                     aidentro = e.ChannelUri.ToString();
                 }
                 );

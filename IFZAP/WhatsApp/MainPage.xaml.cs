@@ -22,6 +22,11 @@ namespace WhatsApp
             //BuildLocalizedApplicationBar();
         }
 
+        private void buttonCadastrar_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/CadastrarUsuario.xaml", UriKind.Relative));
+        }
+
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{

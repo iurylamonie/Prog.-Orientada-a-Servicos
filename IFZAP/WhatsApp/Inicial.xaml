@@ -30,21 +30,21 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <Button x:Name="buttonVolta" Content="Voltar para tela Inicial" HorizontalAlignment="Left" VerticalAlignment="Top" Width="446"/>
-            <phone:Pivot HorizontalAlignment="Left" Height="686" Margin="10,72,0,0" Title="pivot" VerticalAlignment="Top" Width="436" Background="{x:Null}">
+            <phone:Pivot HorizontalAlignment="Left" Height="686" Margin="20,10,0,0" Title="pivot" VerticalAlignment="Top" Width="436" Background="{x:Null}">
                 <phone:PivotItem CacheMode="{x:Null}" Header="Amigos" Margin="12,28,-349,-503" Background="#FFB93C3C">
                     <Grid>
+                        
                         <phone:LongListSelector x:Name="listUsuarios" HorizontalAlignment="Left" Height="455" Margin="10,10,0,0" VerticalAlignment="Top" Width="394">
                             <phone:LongListSelector.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Width="70" Height="70" Source="/Assets/AlignmentGrid.png"/>
-                                        <TextBlock Text="{Binding LineOne Nome}" />
-                                        <TextBlock Text="{Binding LineTwo Descricao}" />
-                                        <Button Content="Confirmar"/>
+                                        <RadioButton x:Name="radioButton" Content="{Binding Nome}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Click="radioButton_Click">
+                                        </RadioButton>
                                     </StackPanel>
                                 </DataTemplate>
                             </phone:LongListSelector.ItemTemplate>
                         </phone:LongListSelector>
+
                     </Grid>
                 </phone:PivotItem>
                 <phone:PivotItem CacheMode="{x:Null}" Header="Grupos" Margin="12,28,-349,-530">
