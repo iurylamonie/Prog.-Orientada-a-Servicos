@@ -10,9 +10,9 @@ using Microsoft.Phone.Shell;
 
 namespace WhatsApp
 {
-    public partial class EscolherUsuario : PhoneApplicationPage
+    public partial class MsgUsuario : PhoneApplicationPage
     {
-        public EscolherUsuario()
+        public MsgUsuario()
         {
             InitializeComponent();
         }

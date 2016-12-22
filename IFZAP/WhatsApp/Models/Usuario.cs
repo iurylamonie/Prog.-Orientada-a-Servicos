@@ -22,7 +22,10 @@ namespace WhatsApp.Models
 
             httpClient.BaseAddress = new Uri("http://localhost:61740/");
         }
-       
+        /*public override string ToString()
+        {
+            return string.Format("{0}-{1}-{2}-{3}", Id, no);
+        }*/
         public async void CriarUsuario(string _nome, string _uri)
         {
             IniciarHttp();
@@ -55,6 +58,15 @@ namespace WhatsApp.Models
             string s = "=" + JsonConvert.SerializeObject(usuario);
             var content = new StringContent(s, Encoding.UTF8, "application/x-www-form-urlencoded");
             await httpClient.PutAsync("api/Usuario/Alterar/" + _nome, content);
+        }
+
+        public async Task<List<Usuario>> Listar()
+        {
+            IniciarHttp();
+            HttpResponseMessage rm = await httpClient.GetAsync("api/Usuario/Listar");
+            var str = rm.Content.ReadAsStringAsync().Result;
+            var usuarios = JsonConvert.DeserializeObject<List<Usuario>>(str);
+            return usuarios.ToList();
         }
     }
 }

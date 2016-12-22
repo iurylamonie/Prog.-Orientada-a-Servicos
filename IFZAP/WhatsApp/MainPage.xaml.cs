@@ -35,6 +35,7 @@ namespace WhatsApp
            // Models.Usuario u = new Models.Usuario();
             //HttpNotificationChannel canalPush = HttpNotificationChannel.Find(nomeCanal);
             Models.UsuarioConectado.Nome = textBoxUsuario.Text;
+            Models.UsuarioConectado.Id = 1;
             NavigationService.Navigate(new Uri("/Inicial.xaml", UriKind.Relative));
             
             /* Codigo

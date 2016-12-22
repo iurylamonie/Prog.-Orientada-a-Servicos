@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="WhatsApp.EscolherUsuario"
+    x:Class="WhatsApp.AddMembro"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -28,10 +28,15 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,128,0,0" TextWrapping="Wrap" Text="Nome" VerticalAlignment="Top"/>
-            <TextBox x:Name="textBoxNome" HorizontalAlignment="Left" Height="72" Margin="10,160,-10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="456"/>
-            <Button x:Name="buttonEntrar" Content="Entrar" HorizontalAlignment="Left" Margin="168,248,0,0" VerticalAlignment="Top"/>
-            <TextBlock x:Name="textBlockAviso" HorizontalAlignment="Left" Margin="95,343,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Visibility="Collapsed"/>
+            <ListBox x:Name="membro" Margin="0,48,0,68">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Nome}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button x:Name="button" Content="Adicionar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,535,0,0" Width="436"/>
+
         </Grid>
     </Grid>
 

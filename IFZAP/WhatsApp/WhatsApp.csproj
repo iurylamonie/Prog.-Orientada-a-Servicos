@@ -91,14 +91,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AddMembro.xaml.cs">
+      <DependentUpon>AddMembro.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CadastrarUsuario.xaml.cs">
-      <DependentUpon>CadastrarUsuario.xaml</DependentUpon>
+    <Compile Include="CriarGrupo.xaml.cs">
+      <DependentUpon>CriarGrupo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EscolherUsuario.xaml.cs">
-      <DependentUpon>EscolherUsuario.xaml</DependentUpon>
+    <Compile Include="GerenciadorGrupo.xaml.cs">
+      <DependentUpon>GerenciadorGrupo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Grupo.xaml.cs">
+      <DependentUpon>Grupo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Inicial.xaml.cs">
       <DependentUpon>Inicial.xaml</DependentUpon>
@@ -107,12 +113,16 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Mensagens.xaml.cs">
-      <DependentUpon>Mensagens.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Grupo.cs" />
     <Compile Include="Models\TUsuario.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioConectado.cs" />
+    <Compile Include="MsgGrupo.xaml.cs">
+      <DependentUpon>MsgGrupo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MsgUsuario.xaml.cs">
+      <DependentUpon>MsgUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -125,11 +135,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="CadastrarUsuario.xaml">
+    <Page Include="AddMembro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EscolherUsuario.xaml">
+    <Page Include="CriarGrupo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GerenciadorGrupo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Grupo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,7 +159,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Mensagens.xaml">
+    <Page Include="MsgGrupo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MsgUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,6 +182,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar1\feature.email.png" />
+    <Content Include="Assets\AppBar\add.png" />
+    <Content Include="Assets\AppBar\feature.calendar.png" />
+    <Content Include="Assets\AppBar\feature.email.png" />
+    <Content Include="Assets\AppBar\stop.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

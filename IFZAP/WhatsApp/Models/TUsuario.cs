@@ -12,9 +12,9 @@ namespace WhatsApp.Models
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public string Imagem { get; set; }
-       /* public override string ToString()
+        public override string ToString()
         {
             return String.Format("{0} - {1}", Nome, Descricao);
-        }*/
+        }
     }
 }
