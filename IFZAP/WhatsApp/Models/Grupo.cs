@@ -35,8 +35,8 @@ namespace WhatsApp.Models
             IniciarHttp();
             HttpResponseMessage rm = await httpClient.GetAsync("api/Grupo/Listar");
             string str = rm.Content.ReadAsStringAsync().Result;
-            List<Grupo> grupos = JsonConvert.DeserializeObject<List<Grupo>>(str);
-            return grupos;
+            var grupos = JsonConvert.DeserializeObject<List<Grupo>>(str);
+            return grupos.ToList();
         }
         public async void Deletar(string descricao)
         {
