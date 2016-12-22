@@ -30,5 +30,13 @@ namespace WhatsApp.Models
             await httpClient.PostAsync("api/Membro/Criar", content);
         }
 
+        public async Task<List<Membro>> Listar(string _descricao)
+        {
+            IniciarHttp();
+            var rm = await httpClient.GetAsync("api/Membro/ListarMembros/" + _descricao);
+            var str = rm.Content.ReadAsStringAsync().Result;
+            List<Membro> membros = JsonConvert.DeserializeObject<List<Membro>>(str);
+            return membros;
+        }
     }
 }

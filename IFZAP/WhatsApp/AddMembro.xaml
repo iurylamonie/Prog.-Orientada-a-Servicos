@@ -22,22 +22,25 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Usuario" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox x:Name="membro" Margin="0,48,0,68">
+            <ListBox x:Name="listUsuarios" Margin="0,48,0,68">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Nome}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button x:Name="button" Content="Adicionar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,535,0,0" Width="436" Click="button_Click"/>
 
         </Grid>
     </Grid>
-
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton x:Name="btnListarUsuarios" IconUri="/Assets/AppBar/feature.calendar.png" Text="Listar" Click="btnListarUsuarios_Click"/>
+            <shell:ApplicationBarIconButton x:Name="btnAdicionarMembro" IconUri="/Assets/AppBar/add.png" Text="Adicionar" Click="btnAdicionarMembro_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

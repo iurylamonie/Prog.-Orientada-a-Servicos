@@ -60,6 +60,7 @@ namespace WhatsApp
 
         private void buttonGerenciador_Click(object sender, RoutedEventArgs e)
         {
+            Models.GrupoEscolhido.Descricao = listBoxGrupo.SelectedItem.ToString();
             NavigationService.Navigate(new Uri("/GerenciadorGrupo.xaml", UriKind.Relative));
         }
     }

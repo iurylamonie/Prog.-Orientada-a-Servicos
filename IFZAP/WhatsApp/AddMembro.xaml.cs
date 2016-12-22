@@ -21,5 +21,17 @@ namespace WhatsApp
         {
             NavigationService.Navigate(new Uri("/GerenciadorGrupo.xaml", UriKind.Relative));
         }
+
+        private void btnAdicionarMembro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btnListarUsuarios_Click(object sender, EventArgs e)
+        {
+            Models.Usuario u = new Models.Usuario();
+            List<Models.Usuario> obj = await u.Listar();
+            listUsuarios.ItemsSource = obj;
+        }
     }
 }

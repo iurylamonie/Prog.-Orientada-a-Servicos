@@ -114,6 +114,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Grupo.cs" />
+    <Compile Include="Models\GrupoEscolhido.cs" />
     <Compile Include="Models\Membro.cs" />
     <Compile Include="Models\TUsuario.cs" />
     <Compile Include="Models\Usuario.cs" />

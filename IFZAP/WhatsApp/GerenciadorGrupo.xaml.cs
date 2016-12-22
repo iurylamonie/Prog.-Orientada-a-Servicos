@@ -15,12 +15,20 @@ namespace WhatsApp
         public GerenciadorGrupo()
         {
             InitializeComponent();
+            Grupo.Text = Models.GrupoEscolhido.Descricao;
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
 
             NavigationService.Navigate(new Uri("/AddMembro.xaml", UriKind.Relative));
+        }
+
+        private async void btnListarMembros_Click(object sender, EventArgs e)
+        {
+            Models.Membro membro = new Models.Membro();
+            var obj = await membro.Listar(Models.GrupoEscolhido.Descricao);
+            listMembros.ItemsSource = obj;
         }
     }
 }

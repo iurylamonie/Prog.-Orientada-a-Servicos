@@ -22,9 +22,13 @@ namespace WebService.Controllers
         }
         [AcceptVerbs("GET")]
         [Route("ListarMembros")]
-        public List<Models.Usuario> ListarMembros(int grupoId)
+        public List<Models.Usuario> ListarMembros(string grupoDescricao)
         {
+            
             Models.IFZAPDataContext dc = new Models.IFZAPDataContext();
+            int grupoId = (from g in dc.Grupos
+                           where g.Descricao == grupoDescricao
+                           select g.Id).Single();
             var membros = from m in dc.Membros
                           where m.Grupo_Id == grupoId
                           select m;
