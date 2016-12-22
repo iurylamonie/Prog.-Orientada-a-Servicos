@@ -13,6 +13,10 @@ namespace WhatsApp.Models
         public int Id { get; set; }
         public string Descricao { get; set; }
         public int IdAdm { get; set; }
+        public override string ToString()
+        {
+            return string.Format("{0}", Descricao); 
+        }
         private HttpClient httpClient;
 
         private void IniciarHttp()
@@ -30,12 +34,12 @@ namespace WhatsApp.Models
             await httpClient.PostAsync("api/Grupo/Criar", content);
 
         }
-        public async Task<List<Grupo>> Listar()
+        public async Task<List<Models.Grupo>> Listar()
         {
             IniciarHttp();
             HttpResponseMessage rm = await httpClient.GetAsync("api/Grupo/Listar");
             string str = rm.Content.ReadAsStringAsync().Result;
-            var grupos = JsonConvert.DeserializeObject<List<Grupo>>(str);
+            var grupos = JsonConvert.DeserializeObject<List<Models.Grupo>>(str);
             return grupos.ToList();
         }
         public async void Deletar(string descricao)

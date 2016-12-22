@@ -47,11 +47,13 @@ namespace WhatsApp
 
         private void buttonDeletar_Click(object sender, RoutedEventArgs e)
         {
+            g = new Models.Grupo();
             g.Deletar(listBoxGrupo.SelectedItem.ToString());
         }
 
         private async void buttonListar_Click(object sender, RoutedEventArgs e)
         {
+            g = new Models.Grupo();
             List<Models.Grupo> obj = await g.Listar();
             listBoxGrupo.ItemsSource = obj;
         }

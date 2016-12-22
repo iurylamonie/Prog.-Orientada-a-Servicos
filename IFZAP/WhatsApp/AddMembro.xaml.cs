@@ -16,5 +16,10 @@ namespace WhatsApp
         {
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/GerenciadorGrupo.xaml", UriKind.Relative));
+        }
     }
 }

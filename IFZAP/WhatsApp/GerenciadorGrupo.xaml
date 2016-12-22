@@ -38,7 +38,7 @@
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton x:Name="btnAddUser" IconUri="/Assets/AppBar/add.png" Text="Adicionar"/>
+            <shell:ApplicationBarIconButton x:Name="btnAddUser" IconUri="/Assets/AppBar/add.png" Text="Adicionar" Click="btnAddUser_Click"/>
             <shell:ApplicationBarIconButton x:Name="btnRemoveUser" IconUri="/Assets/AppBar/stop.png" Text="Remover"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

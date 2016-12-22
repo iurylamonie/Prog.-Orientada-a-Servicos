@@ -8,29 +8,29 @@
         <elementListCompartment Id="f8bee9f3-c097-49a5-8386-67bdd2602a4e" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="d454b5e4-2d7e-4764-acab-9c2b05d9bd5a" absoluteBounds="0.75, 0.875, 2, 1.3862939453124998">
-      <DataClassMoniker Name="/IFZAPDataContext/Grupo" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a335029e-b98b-4da0-a1a4-8d85bd6000c2" absoluteBounds="0.765, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="3065b15c-5d31-42a3-80c5-a7a30970053f" absoluteBounds="3.5, 1, 2, 1.1939925130208335">
       <DataClassMoniker Name="/IFZAPDataContext/Membro" />
       <nestedChildShapes>
         <elementListCompartment Id="eabdf5ec-ce16-4a04-8c0e-40eb7059b9fd" absoluteBounds="3.515, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 1.59699625651042); (3.5 : 1.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/IFZAPDataContext/Grupo/Grupo_Membro" />
-      <nodes>
-        <classShapeMoniker Id="d454b5e4-2d7e-4764-acab-9c2b05d9bd5a" />
-        <classShapeMoniker Id="3065b15c-5d31-42a3-80c5-a7a30970053f" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.53929768880208); (4.5 : 4.53929768880208); (4.5 : 2.19399251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.76369466145833); (4.5 : 4.76369466145833); (4.5 : 2.19399251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/IFZAPDataContext/Usuario/Usuario_Membro" />
       <nodes>
         <classShapeMoniker Id="00781175-5d3a-4729-bfa9-a69b5c4f08b9" />
+        <classShapeMoniker Id="3065b15c-5d31-42a3-80c5-a7a30970053f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3a3bd45d-ee52-4d74-ade0-a48542d77425" absoluteBounds="0.5, 1.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/IFZAPDataContext/Grupo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1d4b93dd-1206-45ab-bfea-2eaed9ab1604" absoluteBounds="0.51500000000000012, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.65949625651042); (3.5 : 1.65949625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/IFZAPDataContext/Grupo/Grupo_Membro" />
+      <nodes>
+        <classShapeMoniker Id="3a3bd45d-ee52-4d74-ade0-a48542d77425" />
         <classShapeMoniker Id="3065b15c-5d31-42a3-80c5-a7a30970053f" />
       </nodes>
     </associationConnector>

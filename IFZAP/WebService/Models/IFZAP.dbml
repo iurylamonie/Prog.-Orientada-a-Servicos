@@ -9,20 +9,20 @@
       <Association Name="Usuario_Membro" Member="Membros" ThisKey="Id" OtherKey="Usuario_Id" Type="Membro" />
     </Type>
   </Table>
-  <Table Name="dbo.Grupo" Member="Grupos">
-    <Type Name="Grupo">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Descricao" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="IdAdm" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Association Name="Grupo_Membro" Member="Membros" ThisKey="Id" OtherKey="Grupo_Id" Type="Membro" />
-    </Type>
-  </Table>
   <Table Name="dbo.Membros" Member="Membros">
     <Type Name="Membro">
       <Column Name="Usuario_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Grupo_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Grupo_Membro" Member="Grupo" ThisKey="Grupo_Id" OtherKey="Id" Type="Grupo" IsForeignKey="true" />
-      <Association Name="Usuario_Membro" Member="Usuario" ThisKey="Usuario_Id" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Usuario_Membro" Member="Usuario" AccessModifier="Internal" ThisKey="Usuario_Id" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Grupo_Membro" Member="Grupo" AccessModifier="Internal" ThisKey="Grupo_Id" OtherKey="Id" Type="Grupo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Grupo" Member="Grupos">
+    <Type Name="Grupo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="IdAdm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Grupo_Membro" Member="Membros" ThisKey="Id" OtherKey="Grupo_Id" Type="Membro" />
     </Type>
   </Table>
 </Database>

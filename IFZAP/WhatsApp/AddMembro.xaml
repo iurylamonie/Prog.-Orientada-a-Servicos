@@ -35,7 +35,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button x:Name="button" Content="Adicionar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,535,0,0" Width="436"/>
+            <Button x:Name="button" Content="Adicionar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,535,0,0" Width="436" Click="button_Click"/>
 
         </Grid>
     </Grid>
